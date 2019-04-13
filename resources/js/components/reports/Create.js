@@ -5,7 +5,7 @@ export default class Create extends Component {
     render() {
         return (
             <div>
-                This is Supplier Create
+                This is Reports Create
             </div>
         );
     }
