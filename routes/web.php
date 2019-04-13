@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return redirect('home');
+})->name('home');
+
+Route::get('/home', function () {
+    return view("home");
 });

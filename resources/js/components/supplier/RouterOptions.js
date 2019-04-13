@@ -6,7 +6,7 @@ export default class Options extends Component {
     render() {
         return (
             <div>
-                <Route path="/supplier/delivers-products" component={Create}/>
+                <Route path="/supplier/add-products" component={Create}/>
             </div>
         );
     }

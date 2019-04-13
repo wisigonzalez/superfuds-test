@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
+import InventoryOptions from './inventory/Options';
+import InventoryRouterOptions from './inventory/RouterOptions';
 import SupplierOptions from './supplier/Options';
 import SupplierRouterOptions from './supplier/RouterOptions';
+import ClientOptions from './client/Options';
+import ClientRouterOptions from './client/RouterOptions';
+import ReportsOptions from './reports/Options';
+import ReportsRouterOptions from './reports/RouterOptions';
 
 export default class Header extends Component {
     render() {
@@ -24,9 +30,7 @@ export default class Header extends Component {
                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Inventory
                                     </Link>
-                                    <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <Link className="dropdown-item" href="#">View Stock</Link>
-                                    </div>
+                                    <InventoryOptions/>
                                 </li>
                                 <li className="nav-item dropdown">
                                     <Link className="nav-link dropdown-toggle" to="/supplier" id="navbarDropdown" role="button"
@@ -40,26 +44,23 @@ export default class Header extends Component {
                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Client
                                     </Link>
-                                    <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <Link className="dropdown-item" href="#">Buy Products</Link>
-                                    </div>
+                                    <ClientOptions/>
                                 </li>
                                 <li className="nav-item dropdown">
-                                    <Link className="nav-link dropdown-toggle" to="/client" id="navbarDropdown" role="button"
+                                    <Link className="nav-link dropdown-toggle" to="/reports" id="navbarDropdown" role="button"
                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Reports
                                     </Link>
-                                    <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <Link className="dropdown-item" href="#">Sales By Clients</Link>
-                                        <Link className="dropdown-item" href="#">Sales By Suppliers</Link>
-                                        <Link className="dropdown-item" href="#">Sales By Products</Link>
-                                    </div>
+                                    <ReportsOptions/>
                                 </li>
                             </ul>
                         </div>
                     </nav>
                 </div>
+                <InventoryRouterOptions/>
                 <SupplierRouterOptions/>
+                <ClientRouterOptions/>
+                <ReportsRouterOptions/>
             </Router>
         );
     }

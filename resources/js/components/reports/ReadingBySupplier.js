@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-export default class Create extends Component {
+export default class ReadingBySupplier extends Component {
     render() {
         return (
             <div>
-                This is Reports Create
+                This is Reports Reading By Suppliers
             </div>
         );
     }

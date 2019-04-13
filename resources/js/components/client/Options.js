@@ -5,8 +5,7 @@ export default class Options extends Component {
     render() {
         return (
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <Link className="dropdown-item" to="/supplier/delivers-products">Delivers Products</Link>
-                <Link className="dropdown-item" to="/supplier/view-inventory">View Inventory</Link>
+                <Link className="dropdown-item" to="/client/buy-products">Buy Products</Link>
             </div>
         );
     }
