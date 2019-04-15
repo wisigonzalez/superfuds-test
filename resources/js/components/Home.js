@@ -6,9 +6,9 @@ import Footer from './Footer';
 export default class Home extends Component {
     render() {
         return (
-            <div className="container">
+            <div>
                 <Header/>
-                    This is BODY
+
                 <Footer/>
             </div>
         );
@@ -18,3 +18,5 @@ export default class Home extends Component {
 if (document.getElementById('app')) {
     ReactDOM.render(<Home />, document.getElementById('app'));
 }
+
+$('.notice').fadeIn().delay(2000).fadeOut('slow');

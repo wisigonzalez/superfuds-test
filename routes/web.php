@@ -12,11 +12,13 @@
 */
 
 Route::get('/', function () {
-    return redirect('home');
-})->name('home');
-
-Route::get('/home', function () {
     return view("home");
 });
 
-Route::get('/inventory/view-stock', 'Api\ProductController@index');
+Route::get('/{path}', function () {
+    return view("home");
+});
+
+Route::get('/{path}/{path2}', function () {
+    return view("home");
+});

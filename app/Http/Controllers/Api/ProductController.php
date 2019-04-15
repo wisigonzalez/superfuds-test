@@ -15,7 +15,21 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::GetProducts();
+        $productModel = new Product();
+        $products = $productModel->getProductsWithProvider()->paginate(5);
+
+        return $products;
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Product[]|\Illuminate\Database\Eloquent\Collection
+     */
+    public function indexClient()
+    {
+        $productModel = new Product();
+        $products = $productModel->getProductsWithProvider(true)->paginate(5);
 
         return $products;
     }
@@ -34,11 +48,22 @@ class ProductController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return Product
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->request->all();
+
+        $product = new Product();
+        $product->name_product = $data['productName'];
+        $product->quantity_product = $data['productQuantity'];
+        $product->lote = $data['productLote'];
+        $product->expiration_date = $data['productExpirationDate'];
+        $product->price_product = $data['productPrice'];
+        $product->provider_id = $data['productProvider'];
+        $product->save();
+
+        return $product;
     }
 
     /**

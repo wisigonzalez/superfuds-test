@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\Invoice;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -12,9 +14,22 @@ class InvoiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($who)
     {
-        //
+        $invoiceModel = new Invoice();
+        switch ($who){
+            case 'by-client':
+                $report = $invoiceModel->getInvoicesByClient();
+                break;
+            case 'by-supplier':
+                $report = $invoiceModel->getInvoicesBySupplier();
+                break;
+            case 'by-product':
+                $report = $invoiceModel->getInvoicesByProduct();
+                break;
+        }
+
+        return $report;
     }
 
     /**
@@ -30,12 +45,36 @@ class InvoiceController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\Request $request
+     * @return string
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->request->all();
+        $code = rand(1, 10);
+        $code = md5($code);
+        $user = rand(1,4);
+
+        foreach ($data as $product) {
+            $invoice = new Invoice();
+            $invoice->code = $code;
+            $invoice->product_id = $product['id_product'];
+            $invoice->quantity_invoice = $product['quantity_product'];
+            $invoice->provider_id = $product['id_provider'];
+            $invoice->price_invoice = $product['price_product'];
+            $invoice->client_id = $user;
+
+            if ($invoice->save()) {
+                $productUpdate = Product::find($product['id_product']);
+                $productUpdate->quantity_product = ($productUpdate->quantity_product - $product['quantity_product']);
+                if ($productUpdate->quantity_product == 0){
+                    $productUpdate->available = 0;
+                }
+                $productUpdate->save();
+            }
+        }
+
+        return $code;
     }
 
     /**
@@ -67,9 +106,19 @@ class InvoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $invoiceId)
     {
-        //
+        $data = $request->request->all();
+        $productsInInvoice = Invoice::where('code', '=', $invoiceId)->delete();
+
+        foreach ($data as $product){
+            $productUpdate = Product::find($product['id_product']);
+            $productUpdate->quantity = ($productUpdate->quantity + $product['quantity']);
+            if ($productUpdate->quantity > 0){
+                $productUpdate->available = 1;
+            }
+            $productUpdate->save();
+        }
     }
 
     /**

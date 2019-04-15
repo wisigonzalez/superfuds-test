@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Link} from 'react-router-dom';
 import InventoryOptions from './inventory/Options';
 import InventoryRouterOptions from './inventory/RouterOptions';
 import SupplierOptions from './supplier/Options';

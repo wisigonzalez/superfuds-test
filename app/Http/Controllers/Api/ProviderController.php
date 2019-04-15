@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\Product;
+use App\Models\Provider;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -10,11 +12,13 @@ class ProviderController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Provider[]|\Illuminate\Database\Eloquent\Collection
      */
     public function index()
     {
-        //
+        $providers = Provider::all();
+
+        return $providers;
     }
 
     /**

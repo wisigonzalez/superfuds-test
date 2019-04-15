@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('lote');
             $table->date('expiration_date');
             $table->float('price');
-            $table->boolean('available');
+            $table->boolean('available')->default(1);
             $table->integer('provider_id');
             $table->timestamps();
         });

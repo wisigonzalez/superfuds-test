@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import Reading from './Reading';
 
 export default class Options extends Component {

@@ -13,21 +13,29 @@ class Product extends Model
      */
     protected $table = 'products';
 
+    protected $primaryKey = 'id_product';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name_product', 'quantity', 'lote', 'expiration_date', 'price', 'available'
+        'name_product', 'quantity_product', 'lote', 'expiration_date', 'price_product', 'available'
     ];
 
     /**
-     * @param $query
+     * @param null $where
      * @return mixed
      */
-    public function scopeGetProducts($query)
+    public function getProductsWithProvider($where = false)
     {
-        return $query->join('providers', 'products.provider_id', '=', 'providers.id')->whereRaw('available = 1')->get();
+        if (!$where) {
+            $query = Product::join('providers', 'products.provider_id', '=', 'providers.id_provider');
+        } else {
+            $query = Product::where('available', '=', '1')->join('providers', 'products.provider_id', '=', 'providers.id_provider');
+        }
+
+        return $query;
     }
 }

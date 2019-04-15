@@ -1,27 +1,54 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import Axios from 'axios';
+import Pagination from "react-js-pagination";
 
 export default class Reading extends Component {
     constructor() {
         super();
-        this.state= {
-            products: []
-        }
 
+        this.handlePageChange = this.handlePageChange.bind(this);
+
+        this.state= {
+            products: [],
+            activePage: 1,
+            itemsCountPerPage: 1,
+            totalItemsCount: 1,
+            pageRangedDisplayed: 2
+        }
     }
 
     componentDidMount() {
-        axios.get('http://superfuds-test.test/inventory/view-stock').then(
-            response => {
-                this.setState({products:response.data})
+        Axios.get('http://superfuds-test.test/api/inventory/view-stock')
+            .then(response => {
+                this.setState({
+                    products:response.data.data,
+                    itemCountPerPage: response.data.per_page,
+                    totalItemsCount: response.data.total,
+                    activePage: response.data.current_page
+                })
+            }
+        )
+    }
+
+    handlePageChange(pageNumber) {
+        console.log(`Active page is ${pageNumber}`);
+        Axios.get('http://superfuds-test.test/api/inventory/view-stock?page='+pageNumber)
+            .then(response => {
+                this.setState({
+                    products:response.data.data,
+                    itemCountPerPage: response.data.per_page,
+                    totalItemsCount: response.data.total,
+                    activePage: response.data.current_page
+                })
             }
         )
     }
 
     render() {
         return (
-            <div>
+            <div className='container'>
                 <br/>
+                <hr/>
                 <table className="table">
                     <thead className="thead-dark">
                         <tr>
@@ -31,7 +58,8 @@ export default class Reading extends Component {
                             <th scope="col">Lote</th>
                             <th scope="col">Expiration Date</th>
                             <th scope="col">Price</th>
-                            <th scope="col">Provider</th>
+                            <th scope="col">Available</th>
+                            <th scope="col">Supplier</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,12 +67,13 @@ export default class Reading extends Component {
                         this.state.products.map(products => {
                             return (
                                 <tr>
-                                    <th scope="row">{products.id}</th>
+                                    <th scope="row">{products.id_product}</th>
                                     <td>{products.name_product}</td>
-                                    <td>{products.quantity}</td>
+                                    <td>{products.quantity_product}</td>
                                     <td>{products.lote}</td>
                                     <td>{products.expiration_date}</td>
-                                    <td>{products.price}</td>
+                                    <td>{products.price_product}</td>
+                                    <td>{products.available === 1 ?('YES'):('NO')}</td>
                                     <td>{products.name_provider}</td>
                                 </tr>
                             )
@@ -52,6 +81,18 @@ export default class Reading extends Component {
                     }
                     </tbody>
                 </table>
+                <div className='d-flex justify-content-center'>
+                    <Pagination
+                        activePage={this.state.activePage}
+                        itemsCountPerPage={this.state.itemCountPerPage}
+                        totalItemsCount={this.state.totalItemsCount}
+                        pageRangeDisplayed={this.state.pageRangeDisplayed}
+                        onChange={this.handlePageChange}
+                        itemClass='page-item'
+                        linkClass='page-link'
+                    />
+                </div>
+                <hr/>
             </div>
         );
     }

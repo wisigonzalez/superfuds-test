@@ -13,6 +13,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/inventory/view-stock', 'Api\ProductController@index');
+Route::get('/inventory/client-view-stock', 'Api\ProductController@indexClient');
+Route::get('/suppliers', 'Api\ProviderController@index');
+Route::post('/supplier/add-products', 'Api\ProductController@store');
+Route::post('/client/buy-products', 'Api\InvoiceController@store');
+Route::put('/client/cancel-buy-products/{invoiceCode}', 'Api\InvoiceController@update');
+Route::get('/reports/{who}', 'Api\InvoiceController@index');

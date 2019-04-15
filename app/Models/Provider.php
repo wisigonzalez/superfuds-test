@@ -11,7 +11,9 @@ class Provider extends Model
      *
      * @var string
      */
-    protected $table = 'provider';
+    protected $table = 'providers';
+
+    protected $primaryKey = 'id_provider';
 
     /**
      * The attributes that are mass assignable.
