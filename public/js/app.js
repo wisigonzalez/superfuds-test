@@ -60898,7 +60898,7 @@ Object.defineProperty(exports,"__esModule",{value:!0});var _createClass=function
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66218,7 +66218,7 @@ function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://superfuds-test.test/api/inventory/client-view-stock').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('https://superfuds-test-luisgonzalez.herokuapp.com/api/inventory/client-view-stock').then(function (response) {
         _this2.setState({
           products: response.data.data,
           itemCountPerPage: response.data.per_page,
@@ -66233,7 +66233,7 @@ function (_Component) {
       var _this3 = this;
 
       console.log("Active page is ".concat(pageNumber));
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://superfuds-test.test/api/inventory/client-view-stock?page=' + pageNumber).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('https://superfuds-test-luisgonzalez.herokuapp.com/api/inventory/client-view-stock?page=' + pageNumber).then(function (response) {
         _this3.setState({
           products: response.data.data,
           itemCountPerPage: response.data.per_page,
@@ -66290,13 +66290,13 @@ function (_Component) {
           message: 'ErrorGenerate'
         });
       } else {
-        axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('http://superfuds-test.test/api/client/buy-products', productsWishedToSend).then(function (response) {
+        axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('https://superfuds-test-luisgonzalez.herokuapp.com/api/client/buy-products', productsWishedToSend).then(function (response) {
           _this5.setState({
             message: 'SuccessGenerate',
             codeInvoice: response.data
           });
 
-          axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://superfuds-test.test/api/inventory/client-view-stock').then(function (response) {
+          axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('https://superfuds-test-luisgonzalez.herokuapp.com/api/inventory/client-view-stock').then(function (response) {
             _this5.setState({
               products: response.data.data,
               itemCountPerPage: response.data.per_page,
@@ -66327,14 +66327,14 @@ function (_Component) {
           productsWishedTotal: 0
         });
       } else {
-        axios__WEBPACK_IMPORTED_MODULE_1___default.a.put('http://superfuds-test.test/api/client/cancel-buy-products/' + codeInvoice, productsWishedToSend).then(function (response) {
+        axios__WEBPACK_IMPORTED_MODULE_1___default.a.put('https://superfuds-test-luisgonzalez.herokuapp.com/api/client/cancel-buy-products/' + codeInvoice, productsWishedToSend).then(function (response) {
           _this6.setState({
             message: 'SuccessCancel',
             productsWished: [],
             productsWishedTotal: 0
           });
 
-          axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://superfuds-test.test/api/inventory/client-view-stock').then(function (response) {
+          axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('https://superfuds-test-luisgonzalez.herokuapp.com/api/inventory/client-view-stock').then(function (response) {
             _this6.setState({
               products: response.data.data,
               itemCountPerPage: response.data.per_page,
@@ -67028,7 +67028,7 @@ function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://superfuds-test.test/api/inventory/view-stock').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('https://superfuds-test-luisgonzalez.herokuapp.com/api/inventory/view-stock').then(function (response) {
         _this2.setState({
           products: response.data.data,
           itemCountPerPage: response.data.per_page,
@@ -67043,7 +67043,7 @@ function (_Component) {
       var _this3 = this;
 
       console.log("Active page is ".concat(pageNumber));
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://superfuds-test.test/api/inventory/view-stock?page=' + pageNumber).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('https://superfuds-test-luisgonzalez.herokuapp.com/api/inventory/view-stock?page=' + pageNumber).then(function (response) {
         _this3.setState({
           products: response.data.data,
           itemCountPerPage: response.data.per_page,
@@ -67305,7 +67305,7 @@ function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://superfuds-test.test/api/reports/' + this.state.type).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('https://superfuds-test-luisgonzalez.herokuapp.com/api/reports/' + this.state.type).then(function (response) {
         _this2.setState({
           invoices: response.data.data,
           itemCountPerPage: response.data.per_page,
@@ -67320,7 +67320,7 @@ function (_Component) {
       var _this3 = this;
 
       console.log("Active page is ".concat(pageNumber));
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://superfuds-test.test/api/reports/' + this.state.type + '?page=' + pageNumber).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('https://superfuds-test-luisgonzalez.herokuapp.com/api/reports/' + this.state.type + '?page=' + pageNumber).then(function (response) {
         _this3.setState({
           invoices: response.data.data,
           itemCountPerPage: response.data.per_page,
@@ -67435,7 +67435,7 @@ function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://superfuds-test.test/api/reports/' + this.state.type).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('https://superfuds-test-luisgonzalez.herokuapp.com/api/reports/' + this.state.type).then(function (response) {
         _this2.setState({
           invoices: response.data.data,
           itemCountPerPage: response.data.per_page,
@@ -67452,7 +67452,7 @@ function (_Component) {
       var _this3 = this;
 
       console.log("Active page is ".concat(pageNumber));
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://superfuds-test.test/api/reports/' + this.state.type + '?page=' + pageNumber).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('https://superfuds-test-luisgonzalez.herokuapp.com/api/reports/' + this.state.type + '?page=' + pageNumber).then(function (response) {
         _this3.setState({
           invoices: response.data.data,
           itemCountPerPage: response.data.per_page,
@@ -67569,7 +67569,7 @@ function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://superfuds-test.test/api/reports/' + this.state.type).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('https://superfuds-test-luisgonzalez.herokuapp.com/api/reports/' + this.state.type).then(function (response) {
         _this2.setState({
           invoices: response.data.data,
           itemCountPerPage: response.data.per_page,
@@ -67584,7 +67584,7 @@ function (_Component) {
       var _this3 = this;
 
       console.log("Active page is ".concat(pageNumber));
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://superfuds-test.test/api/reports/' + this.state.type + '?page=' + pageNumber).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('https://superfuds-test-luisgonzalez.herokuapp.com/api/reports/' + this.state.type + '?page=' + pageNumber).then(function (response) {
         _this3.setState({
           invoices: response.data.data,
           itemCountPerPage: response.data.per_page,
@@ -67782,7 +67782,7 @@ function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://superfuds-test.test/api/suppliers').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('https://superfuds-test-luisgonzalez.herokuapp.com/api/suppliers').then(function (response) {
         _this2.setState({
           productProviderList: response.data
         });
@@ -67844,7 +67844,7 @@ function (_Component) {
         productPrice: this.state.productPrice,
         productProvider: this.state.productProvider
       };
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('http://superfuds-test.test/api/supplier/add-products', product).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('https://superfuds-test-luisgonzalez.herokuapp.com/api/supplier/add-products', product).then(function (response) {
         _this3.setState({
           message: 'Success'
         });
