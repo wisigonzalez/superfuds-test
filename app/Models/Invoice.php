@@ -32,7 +32,7 @@ class Invoice extends Model
      */
     public function getInvoicesByClient()
     {
-        $query = DB::table('Users')
+        $query = DB::table($this->table)
             ->select(DB::raw('DISTINCT users.id_user'), 'name_user',
                 DB::raw('SUM(quantity_invoice * price_invoice) AS total'))
             ->join('invoices', 'invoices.user_id', '=', 'users.id_user')
@@ -47,7 +47,7 @@ class Invoice extends Model
      */
     public function getInvoicesBySupplier()
     {
-        $query = DB::table('Invoices')
+        $query = DB::table($this->table)
             ->select(DB::raw('DISTINCT invoices.provider_id'), 'providers.name_provider',
                 DB::raw('SUM(quantity_invoice * price_invoice) AS total'))
             ->join('providers', 'providers.id_provider', '=', 'invoices.provider_id')
@@ -62,7 +62,7 @@ class Invoice extends Model
      */
     public function getInvoicesByProduct()
     {
-        $query = DB::table('Invoices')
+        $query = DB::table($this->table)
             ->select(DB::raw('DISTINCT product_id'), 'name_product', 'lote',
                 DB::raw('SUM(quantity_invoice * price_invoice) AS total'))
             ->join('products', 'products.id_product', '=', 'invoices.product_id')
