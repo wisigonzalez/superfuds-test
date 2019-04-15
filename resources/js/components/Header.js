@@ -55,6 +55,11 @@ export default class Header extends Component {
                                 </li>
                             </ul>
                         </div>
+                        <Link className="navbar-brand" to="/home">
+                            TEST
+                            <img src="https://superfuds.com/images/page/logosuperf.svg" width="30" height="30"
+                                 className="d-inline-block align-top" alt=""/>
+                        </Link>
                     </nav>
                 </div>
                 <InventoryRouterOptions/>
