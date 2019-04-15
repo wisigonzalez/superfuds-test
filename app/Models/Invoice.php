@@ -14,7 +14,7 @@ class Invoice extends Model
      *
      * @var string
      */
-    protected $table = 'public.invoices';
+    protected $table = 'invoices';
     protected $primaryKey = 'id_invoice';
 
     /**
@@ -33,8 +33,8 @@ class Invoice extends Model
     public function getInvoicesByClient()
     {
         $query = DB::table($this->table)
-            ->select(DB::raw('DISTINCT users.id_user'), 'name_user',
-                DB::raw('SUM(quantity_invoice * price_invoice) AS total'))
+            ->select(DB::raw('DISTINCT users.id_user'), 'users.name_user',
+                DB::raw('SUM(invoices.quantity_invoice * invoices.price_invoice) AS total'))
             ->join('invoices', 'invoices.user_id', '=', 'users.id_user')
             ->groupBy('users.id_user')->paginate(5);
 
