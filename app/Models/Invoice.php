@@ -30,7 +30,7 @@ class Invoice extends Model
      */
     public function getInvoicesByClient()
     {
-        $query = DB::table('Users')
+        $query = DB::table('User')
             ->select(DB::raw('DISTINCT users.id_user'), 'name_user',
                 DB::raw('SUM(quantity_invoice * price_invoice) AS total'))
             ->join('invoices', 'invoices.user_id', '=', 'users.id_user')
