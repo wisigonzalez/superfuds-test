@@ -66037,7 +66037,16 @@ function (_Component) {
         "data-toggle": "dropdown",
         "aria-haspopup": "true",
         "aria-expanded": "false"
-      }, "Reports"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reports_Options__WEBPACK_IMPORTED_MODULE_8__["default"], null)))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_inventory_RouterOptions__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_supplier_RouterOptions__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_client_RouterOptions__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reports_RouterOptions__WEBPACK_IMPORTED_MODULE_9__["default"], null));
+      }, "Reports"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reports_Options__WEBPACK_IMPORTED_MODULE_8__["default"], null)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "navbar-brand",
+        to: "/home"
+      }, "TEST", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://superfuds.com/images/page/logosuperf.svg",
+        width: "30",
+        height: "30",
+        className: "d-inline-block align-top",
+        alt: ""
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_inventory_RouterOptions__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_supplier_RouterOptions__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_client_RouterOptions__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reports_RouterOptions__WEBPACK_IMPORTED_MODULE_9__["default"], null));
     }
   }]);
 
@@ -66101,18 +66110,14 @@ function (_Component) {
   _createClass(Home, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "text-center"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "TEST"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        alt: "LOGO",
-        src: "https://superfuds.com/images/page/logosuperf.svg",
-        id: "img-logo"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Luis Gonz\xE1lez"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "By Luis Gonz\xE1lez"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "Nf-yp-Qk-re",
         src: "https://lh3.googleusercontent.com/-h9GTl5WG8f4/WqC0OgyLo1I/AAAAAAAADuI/QVJlESnN_IQ6D3MzM_Qzx_Vsw6l2oGhYwCEwYBhgL/w140-h139-p/IMG_2232.JPG",
         title: "IMG_2232.JPG",
         alt: "IMG_2232.JPG"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], null));
     }
   }]);
 
