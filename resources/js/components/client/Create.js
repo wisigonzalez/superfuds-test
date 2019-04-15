@@ -186,7 +186,7 @@ export default class Create extends Component {
                                                                             <td>{product.quantity_product}</td>
                                                                             <td>{product.lote}</td>
                                                                             <td>{product.expiration_date}</td>
-                                                                            <td>{product.price_product}</td>
+                                                                            <td>{product.price_product.toLocaleString(navigator.language, { minimumFractionDigits: 2 })}</td>
                                                                             <td>{product.name_provider}</td>
                                                                             <td>
                                                                                 <button type="button" className="btn btn-success" onClick={(e) => this.handleClickAdd(product, e)}>Add</button>
@@ -238,7 +238,7 @@ export default class Create extends Component {
                                                                                 <div className="col-sm-4">
                                                                                     <input type="number" className="form-control-plaintext" value={productWished.quantity_product} onChange={(e) => this.onChangeProductWishedQuantity(productWished, e)}/>
                                                                                 </div>
-                                                                                <label className="col-sm-4 col-form-label">{productWished.price_product * productWished.quantity_product}
+                                                                                <label className="col-sm-4 col-form-label">{(productWished.price_product * productWished.quantity_product).toLocaleString(navigator.language, { minimumFractionDigits: 2 })}
                                                                                 </label>
                                                                             </div>
                                                                         )
@@ -248,7 +248,7 @@ export default class Create extends Component {
                                                                 <div className="form-group row">
                                                                     <label className="col-sm-4 col-form-label font-weight-bold">Total</label>
                                                                     <label className="col-sm-4 col-form-label font-weight-bold"></label>
-                                                                    <label className="col-sm-4 col-form-label font-weight-bold">{this.state.productsWishedTotal}</label>
+                                                                    <label className="col-sm-4 col-form-label font-weight-bold">{this.state.productsWishedTotal.toLocaleString(navigator.language, { minimumFractionDigits: 2 })}</label>
                                                                 </div>
 
                                                                 <div className="form-group row">

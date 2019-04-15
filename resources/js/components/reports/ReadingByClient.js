@@ -54,9 +54,6 @@ export default class ReadingByClient extends Component {
                     <thead className="thead-dark">
                     <tr>
                         <th scope="col">Client Name</th>
-                        <th scope="col">Code Invoice</th>
-                        <th scope="col">Product Name</th>
-                        <th scope="col">Lote</th>
                         <th scope="col">Amount</th>
                     </tr>
                     </thead>
@@ -66,10 +63,7 @@ export default class ReadingByClient extends Component {
                             return (
                                 <tr>
                                     <th scope="row">{invoice.name_user}</th>
-                                    <td>{invoice.code}</td>
-                                    <td>{invoice.name_product}</td>
-                                    <td>{invoice.lote}</td>
-                                    <td>{invoice.quantity_invoice * invoice.price_invoice}</td>
+                                    <td>{invoice.total.toLocaleString(navigator.language, { minimumFractionDigits: 2 })}</td>
                                 </tr>
                             )
                         })

@@ -63,7 +63,7 @@ export default class ReadingBySupplier extends Component {
                             return (
                                 <tr>
                                     <th scope="row">{invoice.name_provider}</th>
-                                    <td>{invoice.total}</td>
+                                    <td>{invoice.total.toLocaleString(navigator.language, { minimumFractionDigits: 2 })}</td>
                                 </tr>
                             )
                         })

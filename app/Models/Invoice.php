@@ -30,9 +30,11 @@ class Invoice extends Model
      */
     public function getInvoicesByClient()
     {
-        $query = Invoice::join('users', 'invoices.client_id', '=', 'users.id_user')
-            ->join('providers', 'invoices.provider_id', '=', 'providers.id_provider')
-            ->join('products', 'invoices.product_id', '=', 'products.id_product')->orderBy('id_user');
+        $query = DB::table('Users')
+            ->select(DB::raw('DISTINCT users.id_user'), 'name_user',
+                DB::raw('SUM(quantity_invoice * price_invoice) AS total'))
+            ->join('invoices', 'invoices.user_id', '=', 'users.id_user')
+            ->groupBy('users.id_user')->paginate(5);
 
         return $query;
     }

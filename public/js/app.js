@@ -66101,7 +66101,18 @@ function (_Component) {
   _createClass(Home, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "text-center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "TEST"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        alt: "LOGO",
+        src: "https://superfuds.com/images/page/logosuperf.svg",
+        id: "img-logo"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Luis Gonz\xE1lez"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "Nf-yp-Qk-re",
+        src: "https://lh3.googleusercontent.com/-h9GTl5WG8f4/WqC0OgyLo1I/AAAAAAAADuI/QVJlESnN_IQ6D3MzM_Qzx_Vsw6l2oGhYwCEwYBhgL/w140-h139-p/IMG_2232.JPG",
+        title: "IMG_2232.JPG",
+        alt: "IMG_2232.JPG"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], null));
     }
   }]);
 
@@ -66383,7 +66394,9 @@ function (_Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.state.products.map(function (product) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
           scope: "row"
-        }, product.id_product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.name_product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.quantity_product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.lote), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.expiration_date), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.price_product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.name_provider), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }, product.id_product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.name_product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.quantity_product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.lote), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.expiration_date), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.price_product.toLocaleString(navigator.language, {
+          minimumFractionDigits: 2
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, product.name_provider), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           type: "button",
           className: "btn btn-success",
           onClick: function onClick(e) {
@@ -66442,7 +66455,9 @@ function (_Component) {
           }
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           className: "col-sm-4 col-form-label"
-        }, productWished.price_product * productWished.quantity_product));
+        }, (productWished.price_product * productWished.quantity_product).toLocaleString(navigator.language, {
+          minimumFractionDigits: 2
+        })));
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -66451,7 +66466,9 @@ function (_Component) {
         className: "col-sm-4 col-form-label font-weight-bold"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "col-sm-4 col-form-label font-weight-bold"
-      }, this.state.productsWishedTotal)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.state.productsWishedTotal.toLocaleString(navigator.language, {
+        minimumFractionDigits: 2
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "col-sm-4 col-form-label"
@@ -67063,7 +67080,9 @@ function (_Component) {
       }, "Supplier"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.state.products.map(function (products) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
           scope: "row"
-        }, products.id_product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, products.name_product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, products.quantity_product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, products.lote), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, products.expiration_date), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, products.price_product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, products.available === 1 ? 'YES' : 'NO'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, products.name_provider));
+        }, products.id_product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, products.name_product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, products.quantity_product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, products.lote), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, products.expiration_date), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, products.price_product.toLocaleString(navigator.language, {
+          minimumFractionDigits: 2
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, products.available === 1 ? 'YES' : 'NO'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, products.name_provider));
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "d-flex justify-content-center"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_js_pagination__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -67323,16 +67342,12 @@ function (_Component) {
         scope: "col"
       }, "Client Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
         scope: "col"
-      }, "Code Invoice"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-        scope: "col"
-      }, "Product Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-        scope: "col"
-      }, "Lote"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-        scope: "col"
       }, "Amount"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.state.invoices.map(function (invoice) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
           scope: "row"
-        }, invoice.name_user), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, invoice.code), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, invoice.name_product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, invoice.lote), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, invoice.quantity_invoice * invoice.price_invoice));
+        }, invoice.name_user), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, invoice.total.toLocaleString(navigator.language, {
+          minimumFractionDigits: 2
+        })));
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "d-flex justify-content-center"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_js_pagination__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -67464,7 +67479,9 @@ function (_Component) {
       }, "Amount"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.state.invoices.map(function (invoice) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
           scope: "row"
-        }, invoice.name_product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, invoice.lote), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, invoice.total));
+        }, invoice.name_product), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, invoice.lote), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, invoice.total.toLocaleString(navigator.language, {
+          minimumFractionDigits: 2
+        })));
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "d-flex justify-content-center"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_js_pagination__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -67592,7 +67609,9 @@ function (_Component) {
       }, "Amount"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.state.invoices.map(function (invoice) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
           scope: "row"
-        }, invoice.name_provider), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, invoice.total));
+        }, invoice.name_provider), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, invoice.total.toLocaleString(navigator.language, {
+          minimumFractionDigits: 2
+        })));
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "d-flex justify-content-center"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_js_pagination__WEBPACK_IMPORTED_MODULE_2___default.a, {

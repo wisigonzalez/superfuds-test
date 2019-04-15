@@ -72,7 +72,7 @@ export default class Reading extends Component {
                                     <td>{products.quantity_product}</td>
                                     <td>{products.lote}</td>
                                     <td>{products.expiration_date}</td>
-                                    <td>{products.price_product}</td>
+                                    <td>{products.price_product.toLocaleString(navigator.language, { minimumFractionDigits: 2 })}</td>
                                     <td>{products.available === 1 ?('YES'):('NO')}</td>
                                     <td>{products.name_provider}</td>
                                 </tr>
