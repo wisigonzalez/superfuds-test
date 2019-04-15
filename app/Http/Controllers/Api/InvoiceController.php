@@ -62,7 +62,7 @@ class InvoiceController extends Controller
             $invoice->quantity_invoice = $product['quantity_product'];
             $invoice->provider_id = $product['id_provider'];
             $invoice->price_invoice = $product['price_product'];
-            $invoice->client_id = $user;
+            $invoice->user_id = $user;
 
             if ($invoice->save()) {
                 $productUpdate = Product::find($product['id_product']);
