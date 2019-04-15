@@ -49,7 +49,7 @@ class Invoice extends Model
     {
         $query = DB::table($this->table)
             ->select(DB::raw('DISTINCT invoices.provider_id'), 'providers.name_provider',
-                DB::raw('SUM(quantity_invoice * price_invoice) AS total'))
+                DB::raw('SUM(invoices.quantity_invoice * invoices.price_invoice) AS total'))
             ->join('providers', 'providers.id_provider', '=', 'invoices.provider_id')
             ->groupBy('invoices.provider_id')->paginate(5);
 
@@ -63,10 +63,10 @@ class Invoice extends Model
     public function getInvoicesByProduct()
     {
         $query = DB::table($this->table)
-            ->select(DB::raw('DISTINCT product_id'), 'name_product', 'lote',
-                DB::raw('SUM(quantity_invoice * price_invoice) AS total'))
+            ->select(DB::raw('DISTINCT products.product_id'), 'products.name_product', 'products.lote',
+                DB::raw('SUM(invoices.quantity_invoice * invoices.price_invoice) AS total'))
             ->join('products', 'products.id_product', '=', 'invoices.product_id')
-            ->groupBy('product_id')->paginate(5);
+            ->groupBy('products.product_id')->paginate(5);
 
         return $query;
     }
