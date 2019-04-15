@@ -30,9 +30,9 @@ class Invoice extends Model
      */
     public function getInvoicesByClient()
     {
-        $query = Invoice::join('users', 'invoices.client_id', '=', 'users.id_client')
+        $query = Invoice::join('users', 'invoices.client_id', '=', 'users.id_user')
             ->join('providers', 'invoices.provider_id', '=', 'providers.id_provider')
-            ->join('products', 'invoices.product_id', '=', 'products.id_product')->orderBy('id_client');
+            ->join('products', 'invoices.product_id', '=', 'products.id_product')->orderBy('id_user');
 
         return $query;
     }
