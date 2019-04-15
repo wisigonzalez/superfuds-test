@@ -19,7 +19,7 @@ export default class ReadingBySupplier extends Component {
     }
 
     componentDidMount() {
-        Axios.get('http://superfuds-test.test/api/reports/'+this.state.type)
+        Axios.get('https://superfuds-test-luisgonzalez.herokuapp.com/api/reports/'+this.state.type)
             .then(response => {
                     this.setState({
                         invoices:response.data.data,
@@ -33,7 +33,7 @@ export default class ReadingBySupplier extends Component {
 
     handlePageChange(pageNumber) {
         console.log(`Active page is ${pageNumber}`);
-        Axios.get('http://superfuds-test.test/api/reports/'+this.state.type+'?page='+pageNumber)
+        Axios.get('https://superfuds-test-luisgonzalez.herokuapp.com/api/reports/'+this.state.type+'?page='+pageNumber)
             .then(response => {
                     this.setState({
                         invoices:response.data.data,

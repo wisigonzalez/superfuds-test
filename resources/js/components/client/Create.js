@@ -31,7 +31,7 @@ export default class Create extends Component {
     }
 
     componentDidMount() {
-        Axios.get('http://superfuds-test.test/api/inventory/client-view-stock')
+        Axios.get('https://superfuds-test-luisgonzalez.herokuapp.com/api/inventory/client-view-stock')
             .then(response => {
                     this.setState({
                         products:response.data.data,
@@ -45,7 +45,7 @@ export default class Create extends Component {
 
     handlePageChange(pageNumber) {
         console.log(`Active page is ${pageNumber}`);
-        Axios.get('http://superfuds-test.test/api/inventory/client-view-stock?page='+pageNumber)
+        Axios.get('https://superfuds-test-luisgonzalez.herokuapp.com/api/inventory/client-view-stock?page='+pageNumber)
             .then(response => {
                     this.setState({
                         products:response.data.data,
@@ -91,10 +91,10 @@ export default class Create extends Component {
         if (this.state.productsWished.length === 0) {
             this.setState({message: 'ErrorGenerate'});
         } else {
-            Axios.post('http://superfuds-test.test/api/client/buy-products', productsWishedToSend)
+            Axios.post('https://superfuds-test-luisgonzalez.herokuapp.com/api/client/buy-products', productsWishedToSend)
                 .then(response => {
                         this.setState({message: 'SuccessGenerate', codeInvoice: response.data});
-                        Axios.get('http://superfuds-test.test/api/inventory/client-view-stock')
+                        Axios.get('https://superfuds-test-luisgonzalez.herokuapp.com/api/inventory/client-view-stock')
                             .then(response => {
                                     this.setState({
                                         products: response.data.data,
@@ -121,10 +121,10 @@ export default class Create extends Component {
             this.setState({message: 'ErrorCancel', productsWished: [], productsWishedTotal: 0});
         } else {
 
-            Axios.put('http://superfuds-test.test/api/client/cancel-buy-products/' + codeInvoice, productsWishedToSend)
+            Axios.put('https://superfuds-test-luisgonzalez.herokuapp.com/api/client/cancel-buy-products/' + codeInvoice, productsWishedToSend)
                 .then(response => {
                         this.setState({message: 'SuccessCancel', productsWished: [], productsWishedTotal: 0});
-                        Axios.get('http://superfuds-test.test/api/inventory/client-view-stock')
+                        Axios.get('https://superfuds-test-luisgonzalez.herokuapp.com/api/inventory/client-view-stock')
                             .then(response => {
                                     this.setState({
                                         products: response.data.data,

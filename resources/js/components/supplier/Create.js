@@ -28,7 +28,7 @@ export default class Create extends Component {
     }
 
     componentDidMount() {
-        Axios.get('http://superfuds-test.test/api/suppliers')
+        Axios.get('https://superfuds-test-luisgonzalez.herokuapp.com/api/suppliers')
             .then(response => {
                 this.setState({productProviderList:response.data})
             }
@@ -82,7 +82,7 @@ export default class Create extends Component {
             productProvider: this.state.productProvider
         }
 
-        Axios.post('http://superfuds-test.test/api/supplier/add-products', product)
+        Axios.post('https://superfuds-test-luisgonzalez.herokuapp.com/api/supplier/add-products', product)
             .then(response => {
                     this.setState({message: 'Success'})
                 }

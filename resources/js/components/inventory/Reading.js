@@ -18,7 +18,7 @@ export default class Reading extends Component {
     }
 
     componentDidMount() {
-        Axios.get('http://superfuds-test.test/api/inventory/view-stock')
+        Axios.get('https://superfuds-test-luisgonzalez.herokuapp.com/api/inventory/view-stock')
             .then(response => {
                 this.setState({
                     products:response.data.data,
@@ -32,7 +32,7 @@ export default class Reading extends Component {
 
     handlePageChange(pageNumber) {
         console.log(`Active page is ${pageNumber}`);
-        Axios.get('http://superfuds-test.test/api/inventory/view-stock?page='+pageNumber)
+        Axios.get('https://superfuds-test-luisgonzalez.herokuapp.com/api/inventory/view-stock?page='+pageNumber)
             .then(response => {
                 this.setState({
                     products:response.data.data,
