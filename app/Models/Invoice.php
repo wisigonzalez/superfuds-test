@@ -14,7 +14,7 @@ class Invoice extends Model
      *
      * @var string
      */
-    protected $table = 'invoices';
+    protected $table = 'public.invoices';
     protected $primaryKey = 'id_invoice';
 
     /**
